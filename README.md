@@ -1,4 +1,5 @@
 # 乐心工具库 | Utils
-* [Log](https://gitlab.lifesense.com/web_npm/ls-utils/tree/master/docs/log)
-* [Bridge](https://gitlab.lifesense.com/web_npm/ls-utils/tree/master/bridge/log)
-* [Common](https://gitlab.lifesense.com/web_npm/ls-utils/tree/master/common/log)
+该工具库包含以下几个子模块
+1. [打点(Log)](https://gitlab.lifesense.com/web_npm/ls-utils/tree/master/docs/log)
+2. [桥接口(Bridge)](https://gitlab.lifesense.com/web_npm/ls-utils/tree/master/docs/bridge)
+3. [通用函数(Common)](https://gitlab.lifesense.com/web_npm/ls-utils/tree/master/docs/common)
