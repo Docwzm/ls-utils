@@ -1,4 +1,5 @@
 ///<reference path="./global.d.ts"/>
+import { bridgeInit } from "./init";
 
 type RGB = { red: number, green: number, blue: number, alpha: number}
 
@@ -32,7 +33,9 @@ interface NavigationBarConfig {
 }
 
 const setNavigationBarConfig = (config: NavigationBarConfig) => {
-  window.LSJavascriptBridge.callHandler("setNavigationBarConfig", config)
+  bridgeInit(() => {
+    window.LSJavascriptBridge.callHandler("setNavigationBarConfig", config)
+  })
 };
 
 interface NavigationBarTransitionConfig {
@@ -42,7 +45,9 @@ interface NavigationBarTransitionConfig {
 }
 
 const setNavigationBarScrollingTransition = (config: NavigationBarTransitionConfig) => {
-  window.LSJavascriptBridge.callHandler("setNavigationBarScrollingTransition", config)
+  bridgeInit(() => {
+    window.LSJavascriptBridge.callHandler("setNavigationBarScrollingTransition", config)
+  })
 };
 
 interface ButtonConfig {
@@ -55,19 +60,17 @@ interface ButtonConfig {
 
 let buttonId = 0;
 const setNavigationBarButtons = (buttonConfigs: ButtonConfig[]) => {
-  buttonConfigs.forEach(buttonConfig => {
-    buttonConfig.title = ''; // title字段无效
-    if (!buttonConfig.buttonId) buttonConfig.buttonId = 'button' + (buttonId ++);
-    if (!buttonConfig.callbackHandlerName) buttonConfig.callbackHandlerName = 'buttonCallback' + buttonId;
-  });
-  window.LSJavascriptBridge.callHandler("setNavigationBarButtons", buttonConfigs)
+  bridgeInit(() => {
+    buttonConfigs.forEach(buttonConfig => {
+      buttonConfig.title = ''; // title字段无效
+      if (!buttonConfig.buttonId) buttonConfig.buttonId = 'button' + (buttonId ++);
+      if (!buttonConfig.callbackHandlerName) buttonConfig.callbackHandlerName = 'buttonCallback' + buttonId;
+    });
+    window.LSJavascriptBridge.callHandler("setNavigationBarButtons", buttonConfigs)
+  })
 };
 
 export {
-  setNavigationBarTitle,
-  setNavigationBarColor,
-  setWebViewTopPadding,
-  setBarLineHidden,
   setNavigationBarConfig,
   setNavigationBarScrollingTransition,
   setNavigationBarButtons,

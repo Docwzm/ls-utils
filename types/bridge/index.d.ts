@@ -100,7 +100,7 @@ export interface NavigationBarConfig {
 }
 
 /**
- * 设置导航栏
+ * 设置导航栏。导航类桥接口内部都用bridgeInit包了一层，所以可以直接调用。
  * @param config
  */
 export function setNavigationBarConfig(config: NavigationBarConfig): void;
@@ -112,7 +112,7 @@ export interface NavigationBarTransitionConfig {
 }
 
 /**
- * 设置页面滚动时的导航栏渐变效果
+ * 设置页面滚动时的导航栏渐变效果。导航类桥接口内部都用bridgeInit包了一层，所以可以直接调用。
  * @param config
  */
 export function setNavigationBarScrollingTransition(config: NavigationBarTransitionConfig): void;
@@ -126,7 +126,7 @@ export interface ButtonConfig {
 }
 
 /**
- * 设置导航栏右侧按钮
+ * 设置导航栏右侧按钮。导航类桥接口内部都用bridgeInit包了一层，所以可以直接调用。
  * @param buttonConfigs
  */
 export function setNavigationBarButtons(buttonConfigs: ButtonConfig[]): void
