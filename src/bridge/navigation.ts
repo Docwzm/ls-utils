@@ -32,7 +32,7 @@ interface NavigationBarConfig {
 }
 
 const setNavigationBarConfig = (config: NavigationBarConfig) => {
-  window.LSJavascriptBridge.callHandler("setWebViewTopPadding", config)
+  window.LSJavascriptBridge.callHandler("setNavigationBarConfig", config)
 };
 
 interface NavigationBarTransitionConfig {
