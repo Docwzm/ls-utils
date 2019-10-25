@@ -28,12 +28,10 @@ umScript.onload = function () {
   _czc.push(["_setAccount", umIdByHost]);
   let u = navigator.userAgent;
   let isAndroid = u.indexOf('Android') > -1 || u.indexOf('Linux') > -1; //android终端或者uc浏览器
-  let isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
 
   if (isAndroid) {
     _czc.push(["_setCustomlet", "安卓用户", "是"]);
-  }
-  if (isiOS) {
+  } else {
     _czc.push(["_setCustomlet", "苹果用户", "是"]);
   }
   loaded = true;
