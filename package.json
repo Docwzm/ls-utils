@@ -7,7 +7,7 @@
     "build:lib": "node ./build/build-lib.js",
     "build:docs": "",
     "unpub": "npm unpublish --registry=http://npm.lexin.com --force",
-    "pub": "npm publish --registry=http://npm.lexin.com"
+    "pub": "npm run build:lib && npm publish --registry=http://npm.lexin.com"
   },
   "files": [
     "lib",
