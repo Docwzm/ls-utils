@@ -6,14 +6,14 @@ import { bridgeInit } from "./init";
  * 显示loading
  */
 function showLoading() {
-  window.LSJavascriptBridge.callHandler("showLoading")
+  window.LSJavascriptBridge && window.LSJavascriptBridge.callHandler("showLoading")
 }
 
 /**
  * 隐藏loading
  */
 function hideLoading() {
-  window.LSJavascriptBridge.callHandler("hideLoading")
+  window.LSJavascriptBridge && window.LSJavascriptBridge.callHandler("hideLoading")
 }
 
 /**
