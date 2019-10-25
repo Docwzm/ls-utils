@@ -25,8 +25,6 @@ import { pushWebviewController } from '@ls/utils'
 * setNavigationBarButtons: 设置导航栏按钮
 * setNavigationBarScrollingTransition: 设置导航栏渐变
 
-### 权限类
-
 ### 通用
 * showLoading: 展示loading
 * hideLoading: 隐藏loading
