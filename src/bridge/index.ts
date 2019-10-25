@@ -30,5 +30,6 @@ export {
 export {
   showLoading,
   hideLoading,
+  jumpToPermissionSetting,
   onShow
 } from './common'

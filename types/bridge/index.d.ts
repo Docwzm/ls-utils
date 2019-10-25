@@ -142,6 +142,11 @@ export function showLoading(): void;
 export function hideLoading(): void;
 
 /**
+ * 跳转push权限设置页，IOS同时还是步数数据授权页
+ */
+export function jumpToPermissionSetting(): void;
+
+/**
  * 设置onShow生命周期回调，当webview打开，返回或者重新进入前台时会被触发
  */
 export function onShow(callback: () => void): void;

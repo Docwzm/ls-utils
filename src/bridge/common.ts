@@ -16,6 +16,18 @@ function hideLoading() {
   window.LSJavascriptBridge.callHandler("hideLoading")
 }
 
+/**
+ * 跳转push权限设置页，IOS同时还是步数数据授权页
+ * 版本3.7.8可用
+ */
+function jumpToPermissionSetting() {
+  if (window.LsPermission) { // 安卓
+    window.LsPermission.jumpToPermissionSetting(2);
+  } else {
+    window.LSJavascriptBridge.callHandler("jumpToPermissionSetting", 1);
+  }
+}
+
 let onShowCallbacks: Callback[] = [];
 
 /**
@@ -37,5 +49,6 @@ function onShow(callback: Callback) {
 export {
   showLoading,
   hideLoading,
+  jumpToPermissionSetting,
   onShow
 }

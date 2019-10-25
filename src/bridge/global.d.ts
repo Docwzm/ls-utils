@@ -1,6 +1,7 @@
 declare interface Window {
   LSJavascriptBridge: Bridge
   LSJavascriptBridgeDidSetUp: (bridge: Bridge) => void;
+  LsPermission?: { jumpToPermissionSetting: (type: number) => void },
   LsSkipView: { pushViewController: (jsonParam: string) => void }
 }
 
