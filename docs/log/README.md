@@ -1,8 +1,16 @@
-安装
+### 引入
+```javascript
+import { logEvent } from '@ls/utils' 
+logEvent(category, action)
 ```
-npm i @ls/utils-log
+
+```javascript
+import { logExposure } from '@ls/utils'
+logExposure(id, category, action)
 ```
-@ls/utils-log基于友盟web打点，提供了两个打点API:
+
+### 接口
+该模块基于友盟web打点，提供了两个打点API:
 ##### 1. logEvent(category: string, action: string)
 	事件点。category表示业务类型，action表示具体事件。
 ##### 2. logExposure(id: string, category: string, action: string) 

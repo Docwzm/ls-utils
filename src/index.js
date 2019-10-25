@@ -1,7 +1,62 @@
-// 由build/build-entry.js脚本自动生成
-import Bridge from './bridge';
-import Common from './common';
-import Log from './log';
-import Wx from './wx';
+/**
+ * 打点接口
+ */
+import logEvent from './log'
+import logExposure from './log/logExposure'
 
-export { Bridge, Common, Log, Wx }
+export {
+  logEvent,
+  logExposure
+}
+
+/**
+ * 桥接口
+ */
+// init
+export {
+  bridgeInit
+} from './bridge/init'
+
+// share
+export {
+  shareUrl,
+  shareImage,
+  shareScreenshot
+} from './bridge/share'
+
+// push view controller
+export {
+  pushWebviewController,
+  pushViewController,
+  pushViewTypeController,
+  popViewController,
+  popToRootViewController
+} from './bridge/view-controller'
+
+// navigate bar
+export {
+  setNavigationBarConfig,
+  setNavigationBarButtons,
+  setNavigationBarScrollingTransition
+} from './bridge/navigation'
+
+// common
+export {
+  showLoading,
+  hideLoading,
+  onShow
+} from './bridge/common'
+
+
+/**
+ * 通用接口
+ */
+export {
+  isWx,
+  isLxydApp,
+  getAppVersionFromUserAgent,
+  compareVersion,
+  format,
+  getQueryString,
+  getCookie
+} from './common'

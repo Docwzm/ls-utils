@@ -2,7 +2,7 @@
  * 用途: 根据ua判断是否为微信环境
  * 返回值：true 是微信环境 false 不是微信环境
  */
-export const isWx = function() {
+const isWx = function() {
   let ua = window.navigator.userAgent.toLowerCase();
   return ua.match(/MicroMessenger/i) == "micromessenger";
 };
@@ -11,7 +11,7 @@ export const isWx = function() {
  * 用途: 根据ua判断是否为乐心运动APP环境
  * 返回值：true 是乐心运动APP环境 false 不是乐心运动APP环境
  */
-export const isLxydApp = function() {
+const isLxydApp = function() {
   let ua = window.navigator.userAgent.toLowerCase();
   return ua.match(/lxyd/i) == "lxyd";
 };
@@ -22,7 +22,7 @@ export const isLxydApp = function() {
  * 备注：版本的格式会有: lxyd/2.9 或 lxyd/2.9.3 或lxyd-dev/2.9.3 或 lxyd-dev/2.9.1(build12)
  * @param appName
  */
-export const getAppVersionFromUserAgent = function(appName = "lxyd") {
+const getAppVersionFromUserAgent = function(appName = "lxyd") {
   let ua = navigator.userAgent;
   let startIndex = ua.indexOf(appName);
   if (startIndex === -1) {
@@ -59,7 +59,7 @@ export const getAppVersionFromUserAgent = function(appName = "lxyd") {
  * "2.3.1"   "2.2.3"   (正数)
  * "2.0.0"   "2.0"     (0)
  */
-export const compareVersion = function(v1, v2) {
+const compareVersion = function(v1, v2) {
   let versions1 = v1.trim().split('.');
   let versions2 = v2.trim().split('.');
 
@@ -87,7 +87,7 @@ export const compareVersion = function(v1, v2) {
  * 当前时区为GMT+0900 (日本标准时间)，format('yyyy-MM-dd hh:mm:ss', 1537174760000) ---> 2018-09-17 17:59:20
  * 当前时区为GMT+0900 (日本标准时间)，format('yyyy-MM-dd hh:mm:ss', 1537174760000, 2) ---> 2018-09-17 16:59:20
  */
-export const format = function(fmt, timestamp, type = 1) {
+const format = function(fmt, timestamp, type = 1) {
   const t = type === 1 ? timestamp : timestamp + new Date().getTimezoneOffset() * 60000 + 8 * 3600000;
   const date2 = new Date(t);
 
@@ -124,7 +124,7 @@ export const format = function(fmt, timestamp, type = 1) {
  * 示例: 如url为：xxx?orderId=4fdc912cb
  * util.getQueryString('xxx?orderId=4fdc912cb','orderId') --> 4fdc912cb
  */
-export const getQueryString = function(url, name) {
+const getQueryString = function(url, name) {
   const reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
   const r = url
       .substring(url.lastIndexOf("?"))
@@ -141,7 +141,7 @@ export const getQueryString = function(url, name) {
  * @param cname
  * @returns {string}
  */
-export const getCookie = function getCookie(cname) {
+const getCookie = function getCookie(cname) {
   const strCookie = document.cookie;
   const arrCookie = strCookie.split("; ");
   for (let i = 0; i < arrCookie.length; i++) {
@@ -152,3 +152,13 @@ export const getCookie = function getCookie(cname) {
   }
   return "";
 };
+
+export {
+  isWx,
+  isLxydApp,
+  getAppVersionFromUserAgent,
+  compareVersion,
+  format,
+  getQueryString,
+  getCookie
+}
