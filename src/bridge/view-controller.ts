@@ -29,7 +29,7 @@ interface ViewControllerConfig {
  * @param replace 是否替换当前view
  */
 export function pushViewTypeController(viewType: ViewType, replace: boolean = false): void {
-  let param: ViewControllerConfig = {
+  let config: ViewControllerConfig = {
     shouldCloseWebViewControllerAfterPush: replace,
     data: {
       url: `lswearable://${viewType}`
@@ -37,11 +37,7 @@ export function pushViewTypeController(viewType: ViewType, replace: boolean = fa
     viewType
   };
 
-  if (window.LsSkipView) { //安卓
-    window.LsSkipView.pushViewController(JSON.stringify(param))
-  } else { //IOS
-    window.LSJavascriptBridge.callHandler("pushViewController", param)
-  }
+  pushViewController(config)
 }
 
 /**
