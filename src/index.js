@@ -44,6 +44,7 @@ export {
 export {
   showLoading,
   hideLoading,
+  jumpToPermissionSetting,
   onShow
 } from './bridge/common'
 
