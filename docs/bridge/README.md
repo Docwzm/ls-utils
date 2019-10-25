@@ -30,5 +30,6 @@ import { pushWebviewController } from '@ls/utils'
 ### 通用
 * showLoading: 展示loading
 * hideLoading: 隐藏loading
-* onShow: 设置onShow生命周期回调。当webview打开，返回或者重新进入前台时会被触发
+* jumpToPermissionSetting: 跳转push权限设置页，IOS同时还是步数数据授权页
+* onShow: 设置onShow生命周期回调，内部已经用bridgeInit包了一层。当webview打开，返回或者重新进入前台时会被触发。
 
