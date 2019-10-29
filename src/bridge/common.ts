@@ -28,22 +28,17 @@ function jumpToPermissionSetting() {
   }
 }
 
-let onShowCallbacks: Callback[] = [];
-
 /**
  * 设置onShow生命周期回调。当webview打开，返回或者重新进入前台时会被触发
  * 版本: >= 4.0
  * @param callback
  */
 function onShow(callback: Callback) {
-  if (!onShowCallbacks.length) {
-    bridgeInit(() => {
-      window.LSJavascriptBridge.registerHandler("onShow", () => {
-        onShowCallbacks.forEach(cb => cb());
-      });
-    })
-  }
-  onShowCallbacks.push(callback);
+  bridgeInit(() => {
+    window.LSJavascriptBridge.registerHandler("onShow", () => {
+      callback && callback()
+    });
+  })
 }
 
 export {
