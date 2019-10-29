@@ -65,6 +65,9 @@ const setNavigationBarButtons = (buttonConfigs: ButtonConfig[]) => {
       buttonConfig.title = ''; // title字段无效
       if (!buttonConfig.buttonId) buttonConfig.buttonId = 'button' + (buttonId ++);
       if (!buttonConfig.callbackHandlerName) buttonConfig.callbackHandlerName = 'buttonCallback' + buttonId;
+      window.LSJavascriptBridge.registerHandler(buttonConfig.callbackHandlerName, () => {
+        buttonConfig.callback && buttonConfig.callback()
+      })
     });
     window.LSJavascriptBridge.callHandler("setNavigationBarButtons", buttonConfigs)
   })
