@@ -10,4 +10,4 @@ if (process.env.NODE_ENV !== "production") {
 ```
 
 ### 说明
-改插件默认项目通过script标签全局引入了VConsole
+该插件默认项目通过script标签全局引入了VConsole
