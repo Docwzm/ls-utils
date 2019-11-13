@@ -60,4 +60,11 @@ export {
   format,
   getQueryString,
   getCookie
-} from './common'
+} from './common';
+
+/**
+ * vconsole插件
+ */
+export {
+  SessionPlugin
+} from './vconsole'
