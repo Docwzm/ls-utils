@@ -11,7 +11,8 @@
   },
   "files": [
     "lib",
-    "src"
+    "src",
+    "types"
   ],
   "dependencies": {
     "core-js": "^2.6.10",
