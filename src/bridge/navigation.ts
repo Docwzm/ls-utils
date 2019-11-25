@@ -1,5 +1,6 @@
 ///<reference path="./global.d.ts"/>
 import { bridgeInit } from "./init";
+import { pushWebviewController } from "./view-controller";
 
 type RGB = { red: number, green: number, blue: number, alpha: number}
 
@@ -29,11 +30,32 @@ interface NavigationBarConfig {
   tintColorType?: number //1：导航栏文字图标显示白色 2：导航栏文字图标显示黑色
   topPadding?: number // webView距离屏幕顶部高度，只有当autoTopPadding设置为false才有效果
   autoTopPadding?: boolean // 会否自动适配webView距离屏幕顶部的高度
-  color: RGB;
+  color: RGB
+  callback: Callback
 }
+
+let clickCount = 0;
+let timer = null;
+const innnerCallback = () => {
+  clickCount++;
+  if (!timer) {
+    timer = setTimeout(() => {
+      clickCount = 0;
+      timer = null;
+    }, 1000)
+  }
+
+  if (clickCount >= 10) pushWebviewController(window.location.href + "&vconsole=true", true);
+};
 
 const setNavigationBarConfig = (config: NavigationBarConfig) => {
   bridgeInit(() => {
+    let cb = config.callback;
+    config.callback = () => {
+      innnerCallback();
+      if  (cb) cb();
+    };
+
     window.LSJavascriptBridge.callHandler("setNavigationBarConfig", config)
   })
 };

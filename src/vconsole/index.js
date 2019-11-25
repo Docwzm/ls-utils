@@ -29,4 +29,4 @@ export const SessionPlugin = () => {
   });
 
   vc.addPlugin(sessionPlugin);
-}
+};
