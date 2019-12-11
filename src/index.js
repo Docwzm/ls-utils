@@ -68,3 +68,10 @@ export {
 export {
   SessionPlugin
 } from './vconsole'
+
+/**
+ * sentry错误监控
+ */
+export {
+  initSentry
+} from  './sentry'

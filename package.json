@@ -1,6 +1,6 @@
 {
   "name": "@ls/utils",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "main": "./lib/index.js",
   "types": "./types/index.d.ts",
   "scripts": {
@@ -16,7 +16,9 @@
   ],
   "dependencies": {
     "core-js": "^2.6.10",
-    "intersection-observer": "^0.7.0"
+    "intersection-observer": "^0.7.0",
+    "@sentry/browser": "^5.10.2",
+    "@sentry/integrations": "^5.10.2"
   },
   "sideEffects": false,
   "devDependencies": {
