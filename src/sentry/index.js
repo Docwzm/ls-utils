@@ -15,7 +15,7 @@ export const initSentry = (dsn) => {
     integrations: [ new Integrations.Vue({ Vue, attachProps: true })] ,
     logLevel: 'Error',
     environment: process.env.NODE_ENV,
-    release: process.env.SENTRY_RELEASE || 'current_release',
+    release: 'current_release',
     attachStacktrace: true,
     beforeSend(event) {
       // 本地环境不上报
