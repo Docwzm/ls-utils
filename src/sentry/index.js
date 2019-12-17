@@ -20,11 +20,8 @@ export const initSentry = (dsn) => {
     beforeSend(event) {
       // 本地环境不上报
       if (localHosts.indexOf(location.host) > -1) return null;
-      // 删除部分字段
-      delete event.sdk;
-      delete event.platform;
-      delete event.breadcrumbs;
-      // event.breadcrumbs = event.breadcrumbs.filter(breadcrumb => ['log', 'info'].indexOf(breadcrumb.level) < 0 );
+      // 过滤breadcrumbs
+      event.breadcrumbs = event.breadcrumbs.filter(breadcrumb => breadcrumb.category !== 'console' );
       return event
     }
   });
