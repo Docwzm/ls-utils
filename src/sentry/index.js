@@ -20,8 +20,16 @@ export const initSentry = (dsn) => {
     beforeSend(event) {
       // 本地环境不上报
       if (localHosts.indexOf(location.host) > -1) return null;
+
+      let extra = event.extra;
+      if (extra && extra.__serialized__) {
+        let resp = extra.__serialized__;
+        delete resp.config;
+        delete resp.headers;
+        resp.request && delete resp.request.__sentry_xhr__;
+      }
       // 过滤breadcrumbs
-      event.breadcrumbs = event.breadcrumbs.filter(breadcrumb => breadcrumb.category !== 'console' );
+      event.breadcrumbs = event.breadcrumbs.filter(breadcrumb => ['console', 'xhr'].indexOf(breadcrumb.category) < 0 );
       return event
     }
   });
