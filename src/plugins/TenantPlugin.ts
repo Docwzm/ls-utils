@@ -1,22 +1,14 @@
 import { getQueryString } from "../../types/common";
 
 type TenantConfig = {
-  tenantName: string,
   hiddenComponents: string[],
   configMap?: { [key: string]: string }
 }
 
-let install = (Vue, options: TenantConfig[]) => {
+let install = (Vue, tc: { [tenantName: string]: TenantConfig} ) => {
   // 获取租户名称
   let tn = getQueryString(location.href, 'tn');
   if (!tn) tn = "default";
-
-  if (!Array.isArray(options)) {
-    throw new Error("Tenant config is not an array!");
-  }
-  // 租户配置
-  let tc: { [key: string]: TenantConfig } = {};
-  options.forEach(conf => tc[conf.tenantName] = conf);
 
   let hideComponent = (componentName) => {
     return tc[tn] && tc[tn].hiddenComponents && tc[tn].hiddenComponents.indexOf(componentName) > -1
