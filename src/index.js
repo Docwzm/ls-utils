@@ -75,3 +75,7 @@ export {
 export {
   initSentry
 } from  './sentry'
+
+export {
+  TenantPlugin
+} from './plugins'
