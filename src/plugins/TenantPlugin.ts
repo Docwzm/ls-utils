@@ -1,4 +1,4 @@
-import { getQueryString } from "../../types/common";
+import { getQueryString } from "../common";
 
 type TenantConfig = {
   hiddenComponents: string[],
