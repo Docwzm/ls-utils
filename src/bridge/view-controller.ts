@@ -1,5 +1,5 @@
 ///<reference path="./global.d.ts"/>
-
+import { isWx } from "../common"
 /**
  * 原生页面枚举
  */
@@ -77,7 +77,7 @@ export const pushWebviewController = (url: string, replace: boolean = false, not
  * 退出当前webview
  */
 export const popViewController = () => {
-  if (ua.indexOf('MicroMessenger') == -1) {//说明不在微信中
+  if (isWx()) {//说明不在微信中
     // 走不在小程序的逻辑
     window.LSJavascriptBridge.callHandler("popViewController")
   } else {
