@@ -159,15 +159,15 @@ const getCookie = function(cname) {
 const setLoginStatus = function() {
   if (location.href.indexOf("session=") < 0) return;//url不含session参数时，不执行后面逻辑
 
-  let session = encodeURIComponent(getQueryString(location.href, 'session'))
-  let SESSION = decodeURIComponent(session)
-  let accessToken2 = JSON.parse(SESSION).accessToken;
-  let userType2 = JSON.parse(SESSION).userType;
-  let loginId2 = JSON.parse(SESSION).loginId;
-  let appType2 = JSON.parse(SESSION).appType;
-  let expireAt2 = JSON.parse(SESSION).expireAt;
+  let sessionStr = encodeURIComponent(getQueryString(location.href, 'session'))
+  let sessionObj = JSON.parse(decodeURIComponent(sessionStr))
+  let accessToken2 = sessionObj.accessToken;
+  let userType2 = sessionObj.userType;
+  let loginId2 = sessionObj.loginId;
+  let appType2 = sessionObj.appType;
+  let expireAt2 = sessionObj.expireAt;
 
-  document.cookie = `session=${session};domain=.lifesense.com;path=/;`;
+  document.cookie = `session=${sessionStr};domain=.lifesense.com;path=/;`;
   document.cookie = `accessToken2=${accessToken2};domain=.lifesense.com;path=/;`;
   document.cookie = `userType2=${userType2};domain=.lifesense.com;path=/;`;
   document.cookie = `loginId2=${loginId2};domain=.lifesense.com;path=/;`;
