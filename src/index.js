@@ -59,7 +59,8 @@ export {
   compareVersion,
   format,
   getQueryString,
-  getCookie
+  getCookie,
+  setLoginStatus
 } from './common';
 
 /**
