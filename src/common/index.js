@@ -141,7 +141,7 @@ const getQueryString = function(url, name) {
  * @param cname
  * @returns {string}
  */
-const getCookie = function getCookie(cname) {
+const getCookie = function(cname) {
   const strCookie = document.cookie;
   const arrCookie = strCookie.split("; ");
   for (let i = 0; i < arrCookie.length; i++) {
@@ -153,6 +153,28 @@ const getCookie = function getCookie(cname) {
   return "";
 };
 
+/**
+ * 用于初始化小程序webview环境的登录态
+ */
+const setLoginStatus = function() {
+  if (location.href.indexOf("session=") < 0) return;//url不含session参数时，不执行后面逻辑
+
+  let session = encodeURIComponent(getQueryString(location.href, 'session'))
+  let SESSION = decodeURIComponent(session)
+  let accessToken2 = JSON.parse(SESSION).accessToken;
+  let userType2 = JSON.parse(SESSION).userType;
+  let loginId2 = JSON.parse(SESSION).loginId;
+  let appType2 = JSON.parse(SESSION).appType;
+  let expireAt2 = JSON.parse(SESSION).expireAt;
+
+  document.cookie = `session=${session};domain=.lifesense.com;path=/;`;
+  document.cookie = `accessToken2=${accessToken2};domain=.lifesense.com;path=/;`;
+  document.cookie = `userType2=${userType2};domain=.lifesense.com;path=/;`;
+  document.cookie = `loginId2=${loginId2};domain=.lifesense.com;path=/;`;
+  document.cookie = `appType2=${appType2};domain=.lifesense.com;path=/;`;
+  document.cookie = `expireAt2=${expireAt2};domain=.lifesense.com;path=/;`;
+}
+
 export {
   isWx,
   isLxydApp,
@@ -160,5 +182,6 @@ export {
   compareVersion,
   format,
   getQueryString,
-  getCookie
+  getCookie,
+  setLoginStatus
 }
