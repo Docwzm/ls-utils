@@ -4,7 +4,7 @@
  */
 const isWx = function() {
   let ua = window.navigator.userAgent.toLowerCase();
-  return ua.match(/MicroMessenger/i) == "micromessenger";
+  return ua.indexOf('MicroMessenger') > -1;
 };
 
 /**
@@ -13,7 +13,7 @@ const isWx = function() {
  */
 const isLxydApp = function() {
   let ua = window.navigator.userAgent.toLowerCase();
-  return ua.match(/lxyd/i) == "lxyd";
+  return ua.indexOf('lxyd') > -1;
 };
 
 /**
