@@ -77,7 +77,24 @@ export const pushWebviewController = (url: string, replace: boolean = false, not
  * 退出当前webview
  */
 export const popViewController = () => {
-  window.LSJavascriptBridge.callHandler("popViewController")
+  if (ua.indexOf('MicroMessenger') == -1) {//说明不在微信中
+    // 走不在小程序的逻辑
+    window.LSJavascriptBridge.callHandler("popViewController")
+  } else {
+    wx.miniProgram.getEnv((res) => {
+      if (res.miniprogram) {
+        // 走在小程序的逻辑
+        if(window.history.length > 1) {
+          window.history.back()
+        } else {
+          wx.navigateBack()
+        }
+      } else {
+        // 走不在小程序的逻辑
+        window.LSJavascriptBridge.callHandler("popViewController")
+      }
+    })
+  }
 };
 
 /**
