@@ -56,3 +56,8 @@ export const getQueryString: (url: string, name: string) => string;
  * @returns {string}
  */
 export const getCookie: (cname: string) => string;
+
+/**
+ * 用于初始化小程序webview环境的登录态
+ */
+export const setLoginStatus: () => void;
