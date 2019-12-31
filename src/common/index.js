@@ -4,7 +4,7 @@
  */
 const isWx = function() {
   let ua = window.navigator.userAgent.toLowerCase();
-  return ua.indexOf('MicroMessenger') > -1;
+  return ua.indexOf('micromessenger') > -1;
 };
 
 /**
