@@ -1,5 +1,6 @@
 ///<reference path="./global.d.ts"/>
-import { isWx } from "../common"
+import { isWx } from "../common";
+import { wechat, mp } from "../wx";
 /**
  * 原生页面枚举
  */
@@ -81,13 +82,13 @@ export const popViewController = () => {
     // 走不在小程序的逻辑
     window.LSJavascriptBridge.callHandler("popViewController")
   } else {
-    wx.miniProgram.getEnv((res) => {
+    mp.invoke('getEnv', (res) => {
       if (res.miniprogram) {
         // 走在小程序的逻辑
         if(window.history.length > 1) {
           window.history.back()
         } else {
-          wx.navigateBack()
+          wechat.invoke('navigateBack')
         }
       } else {
         // 走不在小程序的逻辑

@@ -80,3 +80,11 @@ export {
 export {
   TenantPlugin
 } from './plugins'
+
+/**
+ * 微信H5调用
+ */
+export { 
+  wechat, 
+  mp
+} from './wx'
