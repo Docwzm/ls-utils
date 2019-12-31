@@ -84,12 +84,11 @@ export const popViewController = () => {
   } else {
     mp.invoke('getEnv', (res) => {
       if (res.miniprogram) {
-        // 走在小程序的逻辑
-        if(window.history.length > 1) {
-          window.history.back()
-        } else {
+        // 走在小程序的逻辑，history.back只改变指针位置，不改变history.length
+        window.history.back()
+        setTimeout(() => {
           mp.invoke('navigateBack')
-        }
+        }, 50)
       } else {
         // 走不在小程序的逻辑
         window.LSJavascriptBridge.callHandler("popViewController")
