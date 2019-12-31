@@ -31,31 +31,11 @@ interface NavigationBarConfig {
   topPadding?: number // webView距离屏幕顶部高度，只有当autoTopPadding设置为false才有效果
   autoTopPadding?: boolean // 会否自动适配webView距离屏幕顶部的高度
   color: RGB
-  callback: Callback
 }
-
-let clickCount = 0;
-let timer = null;
-const innnerCallback = () => {
-  clickCount++;
-  if (!timer) {
-    timer = setTimeout(() => {
-      clickCount = 0;
-      timer = null;
-    }, 1000)
-  }
-
-  if (clickCount >= 10) pushWebviewController(window.location.href + "&vconsole=true", true);
-};
 
 const setNavigationBarConfig = (config: NavigationBarConfig) => {
   bridgeInit(() => {
-    let cb = config.callback;
-    config.callback = () => {
-      innnerCallback();
-      if  (cb) cb();
-    };
-
+    document.title = config.title;
     window.LSJavascriptBridge.callHandler("setNavigationBarConfig", config)
   })
 };
