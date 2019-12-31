@@ -88,7 +88,7 @@ export const popViewController = () => {
         if(window.history.length > 1) {
           window.history.back()
         } else {
-          wechat.invoke('navigateBack')
+          mp.invoke('navigateBack')
         }
       } else {
         // 走不在小程序的逻辑
