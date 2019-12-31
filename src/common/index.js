@@ -66,8 +66,8 @@ const compareVersion = function(v1, v2) {
   let len = Math.max(versions1.length, versions2.length);
 
   for (let i = 0; i < len; i++) {
-    let n1 = Number(versions1[i] || 0);
-    let n2 = Number(versions2[i] || 0);
+    let n1 = parseInt(versions1[i] || 0);
+    let n2 = parseInt(versions2[i] || 0);
 
     if (n1 !== n2) return n1 - n2;
   }

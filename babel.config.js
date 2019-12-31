@@ -10,12 +10,13 @@ module.exports = function (api) {
           modules: false,
           targets: {
             browsers: [
-              "iOS 7",
-              "Android >= 4.3"
+              "iOS 8",
+              "Android >= 4.4"
             ]
           },
-          useBuiltIns: "usage",
-          corejs: { version: 2 }
+          // useBuiltIns: "usage",
+          useBuiltIns: false,
+          // corejs: { version: 2 }
         }
       ],
       '@babel/preset-typescript'
