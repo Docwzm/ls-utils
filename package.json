@@ -1,6 +1,6 @@
 {
   "name": "@ls/utils",
-  "version": "0.2.9",
+  "version": "0.2.11",
   "main": "./lib/index.js",
   "types": "./types/index.d.ts",
   "scripts": {

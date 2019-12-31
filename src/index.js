@@ -85,6 +85,6 @@ export {
  * 微信H5调用
  */
 export { 
-  mpNavigateBack, 
-  mpMiniProgramGetEnv
+  wechat, 
+  mp
 } from './wx'
