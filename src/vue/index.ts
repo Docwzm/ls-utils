@@ -1,6 +1,6 @@
 import TenantPlugin from './TenantPlugin'
-import { tenantDirective } from './directives'
+import { TenantDirective } from './directives'
 export {
   TenantPlugin,
-  tenantDirective
+  TenantDirective
 }
