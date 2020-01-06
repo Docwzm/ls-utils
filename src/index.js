@@ -79,7 +79,7 @@ export {
 
 export {
   TenantPlugin
-} from './plugins'
+} from './vue'
 
 /**
  * 微信H5调用
