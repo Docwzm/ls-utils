@@ -1,3 +1,4 @@
+import { getQueryString } from '../common'
 export const tenantDirective = {
     inserted(el, binding) {
         let tenantId = getQueryString(location.href, "tn");
