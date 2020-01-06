@@ -78,7 +78,8 @@ export {
 } from  './sentry'
 
 export {
-  TenantPlugin
+  TenantPlugin,
+  tenantDirective
 } from './vue'
 
 /**
