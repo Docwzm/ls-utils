@@ -79,7 +79,7 @@ export {
 
 export {
   TenantPlugin,
-  tenantDirective
+  TenantDirective
 } from './vue'
 
 /**
