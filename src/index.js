@@ -78,8 +78,9 @@ export {
 } from  './sentry'
 
 export {
-  TenantPlugin
-} from './plugins'
+  TenantPlugin,
+  TenantDirective
+} from './vue'
 
 /**
  * 微信H5调用
