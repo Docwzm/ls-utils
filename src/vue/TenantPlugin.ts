@@ -36,7 +36,7 @@ let install = (Vue, tc: { [tenantName: string]: TenantConfig} ) => {
    * @param className
    */
   Vue.prototype.$getTenantClass = (className: string) => {
-    return tn === 'default' ? className : className + '-' + tn;
+    return tn === 'default' ? className : className + ' ' + className + '-' + tn;
   }
 };
 
