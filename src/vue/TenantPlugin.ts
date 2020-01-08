@@ -29,6 +29,14 @@ let install = (Vue, tc: { [tenantName: string]: TenantConfig} ) => {
    */
   Vue.prototype.$getTenantConfig = (key: string) => {
     return tc[tn] && tc[tn].configMap ? tc[tn].configMap[key] : null;
+  };
+
+  /**
+   * 根据租户名称获取类名
+   * @param className
+   */
+  Vue.prototype.$getTenantClass = (className: string) => {
+    return tn === 'default' ? className : className + '-' + tn;
   }
 };
 
