@@ -155,10 +155,13 @@ const getCookie = function(cname) {
 
 /**
  * 用于初始化小程序webview环境的登录态
+ * 向下兼容登录态 accessToken+userId > session
  */
 const setLoginStatus = function() {
-  if (location.href.indexOf("session=") < 0) return;//url不含session参数时，不执行后面逻辑
+  if (location.href.indexOf("session=") < 0 && location.href.indexOf("accessToken=") < 0) return;//url不含session&&accessToken参数时，不执行后面逻辑
 
+  let accessToken = encodeURIComponent(getQueryString(location.href, 'accessToken'))
+  let userId = encodeURIComponent(getQueryString(location.href, 'userId'))
   let sessionStr = encodeURIComponent(getQueryString(location.href, 'session'))
   let sessionObj = JSON.parse(decodeURIComponent(sessionStr))
   let accessToken2 = sessionObj.accessToken;
@@ -173,6 +176,8 @@ const setLoginStatus = function() {
   document.cookie = `loginId2=${loginId2};domain=.lifesense.com;path=/;`;
   document.cookie = `appType2=${appType2};domain=.lifesense.com;path=/;`;
   document.cookie = `expireAt2=${expireAt2};domain=.lifesense.com;path=/;`;
+  document.cookie = `accessToken=${accessToken};domain=.lifesense.com;path=/;`;
+  document.cookie = `userId=${userId};domain=.lifesense.com;path=/;`;
 }
 
 export {
