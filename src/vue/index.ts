@@ -1,6 +1,7 @@
 import TenantPlugin from './TenantPlugin'
-import { TenantDirective } from './directives'
-export {
-  TenantPlugin,
-  TenantDirective
-}
+import { TenantHideDirective, TenantClassDirective } from "./directives";
+export { 
+  TenantPlugin, 
+  TenantHideDirective, 
+  TenantClassDirective 
+};

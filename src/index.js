@@ -79,7 +79,8 @@ export {
 
 export {
   TenantPlugin,
-  TenantDirective
+  TenantHideDirective,
+  TenantClassDirective
 } from './vue'
 
 /**
